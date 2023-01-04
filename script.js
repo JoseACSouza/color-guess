@@ -14,3 +14,8 @@ for (let index = 0; index < 6; index+=1){
     options.appendChild(item);
 }
 
+//Gerando cores automaticamente
+const itemArray = document.getElementsByClassName('ball');
+for (let index = 0; index < itemArray.length ; index+=1){
+    itemArray[index].style.backgroundColor = `rgb(${Math.floor(Math.random() * 255)},${Math.floor(Math.random() * 255)},${Math.floor(Math.random() * 255)})`
+}
