@@ -1,3 +1,9 @@
+let score;
+if (localStorage.getItem('score')){
+    score = JSON.parse(localStorage.getItem('score'));
+} else {score = 0};
+
+
 //Capturando as sections
 const color = document.getElementsByTagName('section')[0];
 const options = document.getElementsByTagName('section')[1];
@@ -25,15 +31,13 @@ colorAnswer.innerHTML = itemArray[Math.floor(Math.random() * 5)].style.backgroun
 
 
 //Função aos círculos
-const answer = document.createElement('p');
-answer.id = 'answer';
-answer.innerHTML = 'Escolha uma cor';
-color.appendChild(answer);
-
 for (let index = 0; index < itemArray.length ; index+=1){
     itemArray[index].addEventListener('click',(target)=>{
         if (target.path[0].style.backgroundColor === colorAnswer.innerHTML){
             answer.innerHTML = 'Acertou!';
+            score += 3;
+            scoreTable.innerHTML = score;
+            localStorage.setItem('score', score);
         } else {answer.innerHTML = "Errou! Tente novamente!"}
     });
 }
@@ -49,3 +53,20 @@ createButton.appendChild(button);
 button.addEventListener('click',()=>{
     window.location.reload();
 });
+
+//Criando Score
+const scoreMessage = document.createElement('p');
+scoreMessage.id = 'mensagem';
+scoreMessage.innerHTML = 'Placar: ';
+scoreMessage.style.display = 'inline-block';
+scoreMessage.style.marginRight = '12px';
+color.appendChild(scoreMessage);
+const scoreTable = document.createElement('p');
+scoreTable.id = 'score';
+scoreTable.innerHTML = score;
+scoreTable.style.display = 'inline-block';
+color.appendChild(scoreTable);
+const answer = document.createElement('p');
+answer.id = 'answer';
+answer.innerHTML = 'Escolha uma cor';
+color.appendChild(answer);
