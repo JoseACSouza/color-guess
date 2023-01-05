@@ -32,8 +32,20 @@ color.appendChild(answer);
 
 for (let index = 0; index < itemArray.length ; index+=1){
     itemArray[index].addEventListener('click',(target)=>{
-        if (target.style.backgroundColor === colorAnswer.innerHTML){
+        if (target.path[0].style.backgroundColor === colorAnswer.innerHTML){
             answer.innerHTML = 'Acertou!';
         } else {answer.innerHTML = "Errou! Tente novamente!"}
-    })
+    });
 }
+
+//Criando botão reset game
+const createButton = document.createElement('div');
+createButton.id = 'buttons';
+options.appendChild(createButton);
+const button = document.createElement('button');
+button.id = 'reset-game';
+button.innerHTML = 'Reset Game';
+createButton.appendChild(button);
+button.addEventListener('click',()=>{
+    window.location.reload();
+});
