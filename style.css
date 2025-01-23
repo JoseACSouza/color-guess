@@ -1,7 +1,36 @@
+body{
+  margin: 1.5%;
+  background: url(images/splash-art.jpg) no-repeat;
+  background-size: 100%;
+}
+
 .ball{
     width: 100px;
     height: 100px;
+    border: 3px solid darkslategray;
     border-radius: 50%;
     display: inline-block;
     margin: 1%;
+}
+h1 {
+    font-size: 54px;
+    text-align: center;
+    padding: 5px;
+    background-color: rgba(240, 255, 255, 0.6);
+    border-radius: 3px;
+}
+#rgb-color {
+    font-size: 35px;
+    text-align: center;
+    font-weight: bold;
+    padding: 2px;
+}
+
+p{
+    font-size: 24px;
+}
+
+main {
+  padding: 10px;
+    background-color: rgba(240, 255, 255, 0.3);
 }
